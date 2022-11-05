@@ -27,16 +27,29 @@ const KEYS = [
 	'z'
 ]
 
-function Keyboard() {
+function Keyboard({
+	activeLetters,
+	inactiveLetters,
+	addGuessedLetter,
+	disabled = false
+}) {
 	return (
 		<div className='grid grid-cols-keyboard gap-2 p-6'>
 			{KEYS.map((key) => {
+				const isActive = activeLetters.includes(key)
+				const isInactive = inactiveLetters.includes(key)
 				return (
 					<button
-						className='aspect-square border border-black uppercase hover:bg-neutral-200 active:bg-blue-500 active:text-white disabled:opacity-30'
+						onClick={() => addGuessedLetter(key)}
+						className={
+							isActive
+								? 'bg-blue-500 text-white '
+								: 'aspect-square border border-black hover:bg-neutral-200 disabled:opacity-30'
+						}
+						disabled={isInactive || isActive || disabled}
 						key={key}
 					>
-						{key}
+						{key.toUpperCase()}
 					</button>
 				)
 			})}
