@@ -13,11 +13,13 @@ function App() {
 	console.log(wordToGuess)
 
 	return (
-		<div className='container mx-auto flex flex-col items-center gap-8'>
+		<div className='container mx-auto flex flex-col items-center gap-8 min-w-[370px]'>
 			<div className='text-center text-4xl'>Lose Win</div>
-			<Drawing />
+			<Drawing  />
 			<Word />
-			<Keyboard />
+			<div className='self-stretch'>
+				<Keyboard />
+			</div>
 		</div>
 	)
 }

@@ -1,25 +1,25 @@
 const HEAD = (
-	<div className='absolute top-12 -right-7 h-16 w-16 rounded-full border-8 border-black' />
+	<div className='absolute top-12 -right-5 h-12 w-12 rounded-full border-[6px] border-black sm:-right-7 sm:h-16 sm:w-16 sm:border-8' />
 )
 
 const BODY = (
-	<div className='absolute top-28 right-0 h-28 w-2 origin-center bg-black' />
+	<div className='absolute top-24 right-0 h-[86px] w-1.5 origin-center bg-black sm:top-28 sm:h-28 sm:w-2' />
 )
 
 const RIGHT_ARM = (
-	<div className='absolute top-40 -right-28 h-2 w-28 origin-bottom-left -rotate-[30deg] bg-black' />
+	<div className='absolute top-32 -right-20 h-1.5 w-20 origin-bottom-left -rotate-[30deg] bg-black sm:top-40 sm:-right-28 sm:h-2 sm:w-28' />
 )
 
 const LEFT_ARM = (
-	<div className='absolute top-40 right-2 h-2 w-28 origin-bottom-right rotate-[30deg] bg-black' />
+	<div className='absolute top-32 right-1 h-1.5 w-20 origin-bottom-right rotate-[30deg] bg-black sm:top-40 sm:right-2 sm:h-2 sm:w-28' />
 )
 
 const RIGHT_LEG = (
-	<div className='absolute top-52 -right-[120px] h-2 w-32 origin-bottom-left rotate-[60deg] bg-black' />
+	<div className='absolute top-44 -right-[90px] h-1.5 w-24 origin-bottom-left rotate-[60deg] bg-black sm:-right-[120px] sm:top-52 sm:h-2 sm:w-32' />
 )
 
 const LEFT_LEG = (
-	<div className='absolute top-52 right-0 h-2 w-32 origin-bottom-right -rotate-[60deg] bg-black' />
+	<div className='absolute top-44 right-0 h-1.5 w-24 origin-bottom-right -rotate-[60deg] bg-black sm:top-52 sm:h-2 sm:w-32' />
 )
 
 const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG]
@@ -28,10 +28,10 @@ function Drawing() {
 	return (
 		<div className='relative'>
 			{BODY_PARTS}
-			<div className='absolute top-0 right-0 h-12 w-2 bg-black' />
-			<div className='ml-28 h-2 w-48 bg-black' />
-			<div className='ml-28 h-96 w-2 bg-black' />
-			<div className='h-2 w-60 bg-black' />
+			<div className='absolute top-0 right-0 h-12 w-1.5 bg-black sm:w-2' />
+			<div className='ml-20 h-1.5 w-32 bg-black sm:ml-28 sm:h-2 sm:w-48' />
+			<div className='ml-20 h-80 w-1.5 bg-black sm:ml-28 sm:h-96 sm:w-2' />
+			<div className='h-1.5 w-44 bg-black sm:h-2 sm:w-60' />
 		</div>
 	)
 }
