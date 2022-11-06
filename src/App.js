@@ -34,7 +34,7 @@ function App() {
 	}
 
 	return (
-		<div className='container mx-auto min-w-[370px] p-4 pb-28'>
+		<div className='container mx-auto min-w-[370px] p-4'>
 			{!selectedCategory && (
 				<div className='mx-auto max-w-3xl'>
 					<div className='my-3 bg-black p-4 text-center text-2xl  uppercase tracking-wider text-white sm:text-4xl'>
