@@ -7,6 +7,7 @@ import Word from './Word'
 function Hangman({ words = [''] }) {
 	const getWord = () => words[Math.floor(Math.random() * words.length)]
 	const [wordToGuess, setWordToGuess] = useState(getWord)
+
 	const wordToGuessLetterArray = wordToGuess.split('')
 	const wordToGuessFirstLetter = wordToGuessLetterArray[0]
 	const wordToGuessLastLetter =
@@ -68,9 +69,10 @@ function Hangman({ words = [''] }) {
 			document.removeEventListener('keypress', handler)
 		}
 	}, [])
+
 	return (
 		<div className='relative flex flex-col items-center gap-8'>
-			<div className='mt-2 text-center text-4xl'>
+			<div className='mt-6 text-center text-4xl'>
 				{isWinner && 'You won! - Refresh to try again'}
 				{isLoser && 'You lost! - Refresh to try again'}
 			</div>
