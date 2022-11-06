@@ -4,7 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
 			gridTemplateColumns: {
-				keyboard: 'repeat(auto-fit, minmax(75px, 1fr))'
+				keyboardSmall: 'repeat(auto-fit, minmax(60px, 1fr))',
+				keyboardBig: 'repeat(auto-fit, minmax(85px, 1fr))'
 			}
 		}
 	},

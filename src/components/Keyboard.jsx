@@ -34,7 +34,7 @@ function Keyboard({
 	disabled = false
 }) {
 	return (
-		<div className='grid grid-cols-keyboard gap-2'>
+		<div className='grid grid-cols-keyboardSmall gap-2 sm:grid-cols-keyboardBig'>
 			{KEYS.map((key) => {
 				const isActive = activeLetters.includes(key)
 				const isInactive = inactiveLetters.includes(key)

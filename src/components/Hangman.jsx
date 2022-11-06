@@ -1,23 +1,23 @@
 import { useCallback, useEffect, useState } from 'react'
 import Drawing from './Drawing'
-import Hint from './Hint'
+import Header from './Header'
 import Keyboard from './Keyboard'
 import Word from './Word'
 
 function Hangman({ words = [''] }) {
 	const getWord = () => words[Math.floor(Math.random() * words.length)]
-	const [wordToGuess, setWordToGuess] = useState(getWord)
 
-	const wordToGuessLetterArray = wordToGuess.split('')
-	const wordToGuessFirstLetter = wordToGuessLetterArray[0]
-	const wordToGuessLastLetter =
-		wordToGuessLetterArray[wordToGuessLetterArray.length - 1]
+	const [wordToGuess, setWordToGuess] = useState(getWord)
+	const [guessedLetters, setGuessedLetters] = useState([])
 
 	useEffect(() => {
 		console.log(wordToGuess)
 	}, [wordToGuess])
 
-	const [guessedLetters, setGuessedLetters] = useState([])
+	const wordToGuessLetterArray = wordToGuess.split('')
+	const wordToGuessFirstLetter = wordToGuessLetterArray[0]
+	const wordToGuessLastLetter =
+		wordToGuessLetterArray[wordToGuessLetterArray.length - 1]
 
 	const incorrectLetters = guessedLetters.filter(
 		(letter) => !wordToGuessLetterArray.includes(letter)
@@ -53,35 +53,21 @@ function Hangman({ words = [''] }) {
 		}
 	}, [guessedLetters, addGuessedLetter])
 
-	useEffect(() => {
-		const handler = (e) => {
-			const key = e.key
-			if (key !== 'Enter') return
-
-			e.preventDefault()
-			setGuessedLetters([])
-			setWordToGuess(getWord())
-		}
-
-		document.addEventListener('keypress', handler)
-
-		return () => {
-			document.removeEventListener('keypress', handler)
-		}
-	}, [])
-
 	return (
-		<div className='relative flex flex-col items-center gap-8'>
-			<div className='mt-6 text-center text-4xl'>
-				{isWinner && 'You won! - Refresh to try again'}
-				{isLoser && 'You lost! - Refresh to try again'}
-			</div>
-			<Hint
+		<div className='flex flex-col items-center gap-8'>
+			<Header
+				setGuessedLetters={setGuessedLetters}
+				setWordToGuess={setWordToGuess}
+				getWord={getWord}
 				isWinner={isWinner}
 				isLoser={isLoser}
 				wordToGuessFirstLetter={wordToGuessFirstLetter}
 				wordToGuessLastLetter={wordToGuessLastLetter}
 			/>
+			<div className='text-center text-4xl'>
+				{isWinner && 'You won! - Refresh to try again'}
+				{isLoser && 'You lost! - Refresh to try again'}
+			</div>
 			<Drawing numberOfGuesses={incorrectLetters.length} />
 			<Word
 				reveal={isLoser}

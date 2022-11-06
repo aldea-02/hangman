@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Hangman from './components/Hangman'
 import animals from './json/animals.json'
+import carBrands from './json/car-brands.json'
 import cities from './json/cities.json'
 import colors from './json/colors.json'
 import countries from './json/countries.json'
@@ -14,6 +15,7 @@ function App() {
 	const categories = {
 		animals: animals,
 		cities: cities,
+		'car Brands': carBrands,
 		colors: colors,
 		countries: countries,
 		deserts: deserts,
