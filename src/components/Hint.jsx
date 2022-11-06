@@ -12,7 +12,7 @@ function Hint({
 			className={
 				isWinner || isLoser
 					? 'hidden'
-					: 'absolute top-6 left-2 flex flex-col bg-black p-2 text-lg text-white sm:text-2xl'
+					: 'absolute top-2 left-0 flex flex-col bg-black p-2 text-lg text-white sm:text-2xl'
 			}
 		>
 			<button
