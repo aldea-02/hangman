@@ -1,2 +1,1 @@
-Hangman App with category selector
-Score is stored in Local Storage
+Hangman App with category selector and score counter (stored in Local Storage)
